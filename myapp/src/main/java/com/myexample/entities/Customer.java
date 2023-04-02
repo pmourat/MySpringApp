@@ -16,6 +16,7 @@ import java.util.UUID;
 public class Customer {
 
     @Id
+    @GeneratedValue
     @Type(type="org.hibernate.type.UUIDCharType")
     private UUID id;
 

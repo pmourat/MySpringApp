@@ -2,7 +2,6 @@ package com.myexample.configs;
 
 import com.myexample.services.CustomerConverter;
 import com.myexample.services.CustomerDtoConverter;
-import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.convert.ConversionService;
@@ -19,8 +18,4 @@ public class AppConfig {
         return conversionService;
     }
 
-    @Bean
-    public ModelMapper modelMapper() {
-        return new ModelMapper();
-    }
 }

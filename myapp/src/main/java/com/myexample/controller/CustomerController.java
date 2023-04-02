@@ -4,6 +4,7 @@ package com.myexample.controller;
 import com.myexample.dao.CustomerService;
 import com.myexample.dto.CustomerDto;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,12 +18,12 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @GetMapping(path = "/customers")
-    public List<CustomerDto> retrieveAllCustomers() {
-        return customerService.getCustomers();
+    public List<CustomerDto> retrieveAllCustomers(@RequestParam int page, @RequestParam int size, @RequestParam String sort) {
+        return customerService.getCustomers(page, size, sort);
     }
 
     @GetMapping("/customers/{id}")
-    public Optional<CustomerDto> getCustomer(@PathVariable UUID id) {
+    public CustomerDto getCustomer(@PathVariable UUID id) {
 
         return customerService.getCustomer(id);
 
